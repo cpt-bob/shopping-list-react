@@ -6,7 +6,7 @@ import {
 } from "react-router-dom";
 import MainLayout from "./layouts/MainLayout";
 import HomePage from "./pages/HomePage";
-import Calendar from "./pages/Calendar";
+import CalendarPage from "./pages/CalendarPage";
 import ShoppingList from "./pages/ShoppingList";
 import MealPrep from "./pages/MealPrep";
 
@@ -15,7 +15,7 @@ const App = () => {
     createRoutesFromElements(
       <Route path="/" element={<MainLayout />}>
         <Route index element={<HomePage />} />
-        <Route path="calendar" element={<Calendar />} />
+        <Route path="calendar" element={<CalendarPage />} />
         <Route path="shopping-list" element={<ShoppingList />} />
         <Route path="meal-prep" element={<MealPrep />} />
       </Route>
