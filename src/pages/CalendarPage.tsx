@@ -17,14 +17,10 @@ const CalendarPage = () => {
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        // const response = await fetch("/api/activities");
-        // const data = await response.json();
-
-        // console.log("API response:", data)
         const mockData = [
           {
             activity: "Sample Event 1",
-            dateStart: "2025-03-22T15:00:00", // Example date in ISO string
+            dateStart: "2025-03-22T15:00:00",
             dateEnd: "2025-03-22T21:00:00",
           },
           {
@@ -34,11 +30,10 @@ const CalendarPage = () => {
           },
         ];
 
-        // Format events into the correct format for react-big-calendar
         const formattedEvents = mockData.map((activity) => ({
           title: activity.activity,
-          start: new Date(activity.dateStart), // Assuming the date comes as a string
-          end: new Date(activity.dateEnd), // You can adjust this if you need a start/end range
+          start: new Date(activity.dateStart),
+          end: new Date(activity.dateEnd),
         }));
 
         setEvents(formattedEvents);
@@ -53,19 +48,19 @@ const CalendarPage = () => {
   return (
     <div className="h-full flex flex-col items-center justify-center bg-gray-100">
       <div className="w-full max-w-4xl p-4 bg-white rounded-lg shadow-md">
-        <h1 className="text-center text-2xl font-semibold mb-4">
-          Current Month Calendar
-        </h1>
+        <button className="p-3 mb-3 bg-blue-500 rounded-3xl shadow-2xl">
+          Add New Event
+        </button>
         <div className="w-full">
           <Calendar
             localizer={localizer}
             events={events}
             startAccessor="start"
             endAccessor="end"
-            style={{ height: 600 }} // Adjust the calendar height
-            views={["month", "week", "day"]} // Allows switching between different views
-            toolbar={true} // Shows the toolbar
-            selectable={true} // Allows selecting dates for events
+            style={{ height: 600 }}
+            views={["month", "week", "day"]}
+            toolbar={true}
+            selectable={true}
           />
         </div>
       </div>

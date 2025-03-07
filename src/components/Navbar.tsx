@@ -6,10 +6,15 @@ interface LinkProps {
 }
 
 const Navbar = () => {
+  const loginClass = ({ isActive }: LinkProps): string =>
+    isActive
+      ? "text-white hover:text-red-500 px-3 py-2"
+      : "text-white hover:text-red-500 px-2 py-2";
+
   const linkClass = ({ isActive }: LinkProps): string =>
     isActive
-      ? "bg-black text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2"
-      : "text-white hover:bg-gray-900 hover:text-white rounded md px-r py-2";
+      ? "bg-black text-white hover:bg-gray-900 rounded-md px-3 py-2"
+      : "text-white hover:bg-gray-900 rounded-md px-2 py-2";
 
   return (
     <nav className="bg-indigo-700 border-b border-indigo-500">
@@ -18,7 +23,7 @@ const Navbar = () => {
           <div className="flex flex-1 items-center justify-center md:items-stretch md:justify-start">
             {/* <!-- Logo --> */}
             <NavLink className="flex flex-shrink-0 items-center mr-4" to="/">
-              <img className="h-10 w-auto" src={logo} alt="React Jobs" />
+              <img className="h-10 w-auto" src={logo} alt="React" />
               <span className="hidden md:block text-white text-2xl font-bold ml-2">
                 Family Website
               </span>
@@ -36,6 +41,9 @@ const Navbar = () => {
                 </NavLink>
                 <NavLink to="/meal-prep" className={linkClass}>
                   Meal Prep
+                </NavLink>
+                <NavLink to="/login" className={loginClass}>
+                  Login
                 </NavLink>
               </div>
             </div>
